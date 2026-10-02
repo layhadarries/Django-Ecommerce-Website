@@ -15,8 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+# from . import views # this version used that html line
+    # project name.vies file import function
+from ecom_website.views import hello_geeks
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # "" is like the category like "/home" or "/user", from views we get the home function that returns html, name = "home" ig is the 
+    path('', include("projAppExample.urls")),
 ]
+# ------------------------------------------------------------------------
+# The view (home) handles the request and returns a response.
+# The URLconf (urls.py) maps / to the view.
+# Django sends the response back as HTML to the browser.
+# ------------------------------------------------------------------------
